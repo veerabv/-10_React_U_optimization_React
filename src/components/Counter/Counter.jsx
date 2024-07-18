@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState , memo } from 'react';
 
 import IconButton from '../UI/IconButton.jsx';
 import MinusIcon from '../UI/Icons/MinusIcon.jsx';
@@ -26,8 +26,9 @@ function isPrime(number) {
 
   return true;
 }
-
-export default function Counter({ initialCount }) {
+//this Memo will check the props in the render time if the props changes then this will render otherwise it will not render
+// dont use memo in the nested child component becasue it checks props which is unneccessary , use it in the top level components
+const Counter = memo(function Counter({ initialCount }) {   
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
 
@@ -58,4 +59,6 @@ export default function Counter({ initialCount }) {
       </p>
     </section>
   );
-}
+})
+
+export default Counter;
