@@ -20,6 +20,7 @@ function App() {
       <main>
         <CounterSet handleSetClick={handleSetClick} />
         <Counter initialCount={chosenCount} />
+        <Counter initialCount={0} />
 
       </main>
     </>
