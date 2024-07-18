@@ -1,4 +1,4 @@
-import { useState , useCallback,useMemo } from 'react'; // usememo added
+import { useState , useCallback,useMemo, useEffect } from 'react'; // usememo added
 
 import IconButton from '../UI/IconButton.jsx';
 import MinusIcon from '../UI/Icons/MinusIcon.jsx';
@@ -31,7 +31,13 @@ function isPrime(number) {
 //this Memo will check the props in the render time if the props changes then this will render otherwise it will not render
 // dont use memo in the nested child component becasue it checks props which is unneccessary , use it in the top level components
 const Counter = function Counter({ initialCount }) {   
+  
   log('<Counter /> rendered', 1);
+
+// tihs effect is used to set the counter to the entered value when initialCount changes, but we can also change this using key in the place of this component useage
+  useEffect(()=>{
+    setCounter([{value:initialCount,id:Math.random()*1000}])
+  },[initialCount])
 
   const initialCountIsPrime = useMemo(()=>isPrime(initialCount),[initialCount]);
 
@@ -45,7 +51,7 @@ const Counter = function Counter({ initialCount }) {
   const handleIncrement = useCallback(function handleIncrement() {
     setCounter((prevCounter) => [{value:1 ,id:Math.random()*1000 },...prevCounter]);
   },[])
-
+ 
   return (
     <section className="counter">
       <p className="counter-info">
