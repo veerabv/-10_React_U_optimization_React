@@ -12,7 +12,8 @@ function HistoryItem({ count }) {
   }
 
   return (
-    <li onClick={handleClick} className={selected ? 'selected' : undefined}>
+    // if we select on element and click another increment count the selected element chnaged due to index key to solve this give unique key
+    <li onClick={handleClick} className={selected ? 'selected' : undefined}>  
       {count}
     </li>
   );
@@ -23,8 +24,8 @@ export default function CounterHistory({ history }) {
 
   return (
     <ol>
-      {history.map((count, index) => (
-        <HistoryItem key={index} count={count.value} />
+      {history.map((count) => (
+        <HistoryItem key={count.id} count={count.value} />
       ))}
     </ol>
   );
