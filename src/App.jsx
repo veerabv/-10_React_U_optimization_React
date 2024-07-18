@@ -19,8 +19,8 @@ function App() {
       <Header />
       <main>
         <CounterSet handleSetClick={handleSetClick} />
-        <Counter initialCount={chosenCount} />
-        <Counter initialCount={0} />
+        <Counter key = {chosenCount} initialCount={chosenCount} />  
+        <Counter initialCount={0} /> {/* if we use the same key to siblings react will complain  */}
 
       </main>
     </>

@@ -34,10 +34,10 @@ const Counter = function Counter({ initialCount }) {
   
   log('<Counter /> rendered', 1);
 
-// tihs effect is used to set the counter to the entered value when initialCount changes, but we can also change this using key in the place of this component useage
-  useEffect(()=>{
-    setCounter([{value:initialCount,id:Math.random()*1000}])
-  },[initialCount])
+  // tihs effect is used to set the counter to the entered value when initialCount changes, but we can also change this using key in the place of this component useage
+  // useEffect(()=>{
+  //   setCounter([{value:initialCount,id:Math.random()*1000}])
+  // },[initialCount])
 
   const initialCountIsPrime = useMemo(()=>isPrime(initialCount),[initialCount]);
 
