@@ -28,7 +28,7 @@ function isPrime(number) {
 }
 //this Memo will check the props in the render time if the props changes then this will render otherwise it will not render
 // dont use memo in the nested child component becasue it checks props which is unneccessary , use it in the top level components
-const Counter = memo(function Counter({ initialCount }) {   
+const Counter = function Counter({ initialCount }) {   
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
 
@@ -59,6 +59,6 @@ const Counter = memo(function Counter({ initialCount }) {
       </p>
     </section>
   );
-})
+}
 
 export default Counter;
