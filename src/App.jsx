@@ -10,7 +10,7 @@ function App() {
   const [chosenCount, setChosenCount] = useState(0);
 
   function handleSetClick(enteredNumber) {
-    console.log("trigger");
+    // console.log("trigger");
     setChosenCount(enteredNumber);
   }
 
@@ -20,6 +20,7 @@ function App() {
       <main>
         <CounterSet handleSetClick={handleSetClick} />
         <Counter initialCount={chosenCount} />
+
       </main>
     </>
   );

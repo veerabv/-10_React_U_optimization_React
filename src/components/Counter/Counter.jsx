@@ -1,4 +1,4 @@
-import { useState , useCallback } from 'react';
+import { useState , useCallback,useMemo } from 'react'; // usememo added
 
 import IconButton from '../UI/IconButton.jsx';
 import MinusIcon from '../UI/Icons/MinusIcon.jsx';
@@ -30,7 +30,8 @@ function isPrime(number) {
 // dont use memo in the nested child component becasue it checks props which is unneccessary , use it in the top level components
 const Counter = function Counter({ initialCount }) {   
   log('<Counter /> rendered', 1);
-  const initialCountIsPrime = isPrime(initialCount);
+
+  const initialCountIsPrime = useMemo(()=>isPrime(initialCount),[initialCount]);
 
   const [counter, setCounter] = useState(initialCount);
 
